@@ -168,24 +168,7 @@ body {
     }
 }
 
-.subtitle {
-    font-size: 2.2rem;
-    font-weight: 800;
-    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ff6b6b, #ffa500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 400% 400%;
-    animation: constructionGlow 3s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
-    border: 3px solid #ffa500;
-    border-radius: 15px;
-    padding: 1rem 2rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    margin: 1.5rem 0;
-    box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
-}
+
 
 @keyframes pulse {
     0%, 100% {
@@ -196,23 +179,7 @@ body {
     }
 }
 
-@keyframes constructionGlow {
-    0% {
-        background-position: 0% 50%;
-        transform: scale(1);
-        box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
-    }
-    50% {
-        background-position: 100% 50%;
-        transform: scale(1.02);
-        box-shadow: 0 15px 40px rgba(255, 165, 0, 0.4);
-    }
-    100% {
-        background-position: 0% 50%;
-        transform: scale(1);
-        box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
-    }
-}
+
 
 /* Cards */
 .card {
@@ -532,11 +499,6 @@ body {
         font-size: 2.2rem;
     }
     
-    .subtitle {
-        font-size: 1.6rem;
-        padding: 0.8rem 1.5rem;
-    }
-    
     .section-title {
         font-size: 1.8rem;
     }
@@ -573,11 +535,6 @@ body {
 @media (max-width: 480px) {
     .main-title {
         font-size: 1.8rem;
-    }
-    
-    .subtitle {
-        font-size: 1.3rem;
-        padding: 0.6rem 1rem;
     }
     
     .logo {
