@@ -88,12 +88,35 @@ body {
 .header {
     text-align: center;
     margin-bottom: 3rem;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 3px solid rgba(255, 192, 203, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 240, 0.95));
+    padding: 2.5rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 165, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 165, 0, 0.1), transparent);
+    animation: headerShine 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes headerShine {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .logo-container {
@@ -117,30 +140,51 @@ body {
 
 .main-title {
     font-family: 'Bubblegum Sans', cursive;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 400;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ff8c00, #ff6b6b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 400% 400%;
     margin-bottom: 1rem;
-    animation: textGlow 2s ease-in-out infinite alternate;
+    animation: titleGlow 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
 }
 
-@keyframes textGlow {
-    from {
+@keyframes titleGlow {
+    0% {
+        background-position: 0% 50%;
         text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
     }
-    to {
-        text-shadow: 0 0 30px rgba(69, 183, 209, 0.8);
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 30px rgba(255, 165, 0, 0.8);
+    }
+    100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
     }
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    font-weight: 600;
-    animation: pulse 2s ease-in-out infinite;
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ff6b6b, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 400% 400%;
+    animation: constructionGlow 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+    border: 3px solid #ffa500;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
 }
 
 @keyframes pulse {
@@ -152,32 +196,62 @@ body {
     }
 }
 
+@keyframes constructionGlow {
+    0% {
+        background-position: 0% 50%;
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
+    }
+    50% {
+        background-position: 100% 50%;
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(255, 165, 0, 0.4);
+    }
+    100% {
+        background-position: 0% 50%;
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
+    }
+}
+
 /* Cards */
 .card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 3px solid rgba(255, 192, 203, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 245, 0.95));
+    border-radius: 25px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 165, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    border-color: rgba(255, 165, 0, 0.4);
 }
 
 .section-title {
     font-family: 'Bubblegum Sans', cursive;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-align: center;
     margin-bottom: 1.5rem;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ff8c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 200%;
+    animation: sectionTitleGlow 4s ease-in-out infinite;
+}
+
+@keyframes sectionTitleGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .description {
@@ -439,11 +513,12 @@ body {
 /* Footer */
 .footer {
     text-align: center;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    margin-top: 2rem;
-    border: 3px solid rgba(255, 192, 203, 0.3);
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 245, 0.95));
+    border-radius: 25px;
+    margin-top: 2.5rem;
+    border: 3px solid rgba(255, 165, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .footer p {
@@ -454,11 +529,16 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+        padding: 0.8rem 1.5rem;
     }
     
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     
     .container {
@@ -492,7 +572,12 @@ body {
 
 @media (max-width: 480px) {
     .main-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1.3rem;
+        padding: 0.6rem 1rem;
     }
     
     .logo {
