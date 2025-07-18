@@ -34,31 +34,42 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.textContent = '🚀 Sending...';
         submitBtn.disabled = true;
         
-        // Simulate form submission (in real implementation, this would send to a server)
-        setTimeout(() => {
+        // Send form data to serverless function
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                phone,
+                eventDate,
+                message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
             // Reset button
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
             
-            // Show success message
-            showMessage('🎉 Thank you for your enquiry! We\'ll bounce back to you within 24 hours!', 'success');
+            if (data.message) {
+                showMessage(data.message, 'success');
+                // Reset form on success
+                contactForm.reset();
+            } else {
+                showMessage('There was an error sending your message. Please try again.', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
             
-            // Reset form
-            contactForm.reset();
-            
-            // In a real implementation, you would send the data to your server here
-            // Example:
-            // fetch('/api/contact', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({
-            //         name, email, phone, eventDate, message
-            //     })
-            // })
-            
-        }, 2000);
+            showMessage('Sorry, there was an error sending your message. Please try calling us directly at 07835 094187.', 'error');
+        });
     });
     
     // Show message function
