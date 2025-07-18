@@ -212,12 +212,12 @@ body {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 2.8rem;
     font-weight: 400;
-    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffed4e, #00d084, #00b8d4, #a8e6cf, #ff8fab, #ff6b6b);
+    background: linear-gradient(45deg, #ff6b6b, #ff8a80, #ffb74d, #81c784, #64b5f6, #ba68c8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 1rem;
-    text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+    text-shadow: 0 0 20px rgba(255, 107, 107, 0.2);
     position: relative;
     z-index: 1;
 }
@@ -302,11 +302,11 @@ body {
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 1.5rem;
-    background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffed4e, #00d084, #00b8d4, #a8e6cf, #ff8fab);
+    background: linear-gradient(45deg, #ff6b6b, #ff8a80, #ffb74d, #81c784, #64b5f6, #ba68c8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 15px rgba(255, 107, 107, 0.2);
+    text-shadow: 0 0 15px rgba(255, 107, 107, 0.15);
 }
 
 .description {
