@@ -4,7 +4,7 @@
   "description": "T&S Bouncy Castle Hire - Coming Soon Website",
   "main": "index.html",
   "scripts": {
-    "dev": "npx http-server public -p 3000 -o",
+    "dev": "node dev-server.js",
     "dev:vercel": "vercel dev",
     "build": "echo 'Static site ready in public directory'",
     "start": "serve public"
