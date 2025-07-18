@@ -5,8 +5,8 @@
   "main": "index.html",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'No build step needed for static site'",
-    "start": "serve ."
+    "build": "echo 'Static site ready in public directory'",
+    "start": "serve public"
   },
   "dependencies": {
     "nodemailer": "^6.9.8"
