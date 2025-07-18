@@ -3,6 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
+// Load environment variables from .env.local
+if (fs.existsSync('.env.local')) {
+    const envFile = fs.readFileSync('.env.local', 'utf8');
+    const envLines = envFile.split('\n');
+    envLines.forEach(line => {
+        if (line.includes('=')) {
+            const [key, value] = line.split('=');
+            process.env[key.trim()] = value.trim();
+        }
+    });
+}
+
 // Import the API function
 const contactHandler = require('./api/contact');
 
