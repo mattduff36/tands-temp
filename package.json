@@ -4,7 +4,8 @@
   "description": "T&S Bouncy Castle Hire - Coming Soon Website",
   "main": "index.html",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "npx http-server public -p 3000 -o",
+    "dev:vercel": "vercel dev",
     "build": "echo 'Static site ready in public directory'",
     "start": "serve public"
   },
@@ -12,7 +13,8 @@
     "nodemailer": "^6.9.8"
   },
   "devDependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "http-server": "^14.1.1"
   },
   "keywords": ["bouncy-castle", "hire", "edwinstowe", "events", "parties"],
   "author": "mpdee.co.uk",
