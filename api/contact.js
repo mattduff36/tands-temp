@@ -1,15 +1,30 @@
 const nodemailer = require('nodemailer');
 
-module.exports = async function handler(req, res) {
+module.exports = async (req, res) => {
+    // Set CORS headers
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
+    }
+    
     // Only allow POST requests
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
+    console.log('Contact form submission received:', req.method);
+    console.log('Request body:', req.body);
+    
     const { name, email, phone, eventDate, message } = req.body;
 
     // Validate required fields
     if (!name || !email || !message) {
+        console.log('Validation failed: missing required fields');
         return res.status(400).json({ message: 'Please fill in all required fields!' });
     }
 

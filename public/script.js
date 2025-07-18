@@ -48,8 +48,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 message
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Response status:', response.status);
+            console.log('Response ok:', response.ok);
+            
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.message || `HTTP error! status: ${response.status}`);
+                });
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('Success response:', data);
             // Reset button
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -68,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
             
-            showMessage('Sorry, there was an error sending your message. Please try calling us directly at 07835 094187.', 'error');
+            showMessage(`Sorry, there was an error: ${error.message}. Please try calling us directly at 07835 094187.`, 'error');
         });
     });
     
